@@ -1,0 +1,97 @@
+
+body {
+    background-color: #f0f0f0; 
+    color: #333; 
+    font-family: 'Arial', sans-serif; 
+}
+
+.conteneur {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 500px;
+
+    #conteneur_affichageId {
+        list-style: none; 
+        padding: 0;
+
+        #conteneur_affichageId li {
+            background-color: #fff;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+
+
+        }
+        
+    }
+
+    #conteneur_askText {
+        margin-bottom: 20px;
+
+        #conteneur_asktText_input, #conteneur_asktText_button {
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+        }
+        #conteneur_asktText_button {
+            background-color: #4c87af;
+            color: white;
+            cursor: pointer;
+        }
+    }
+    .conteneur_second {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 200px;
+        flex-direction: column; 
+    }
+}
+
+
+
+        .delete-button {
+            position: relative;
+            font-size: 0.7em;
+            padding: 0.7em 1.4em;
+            background-color: #d37878;
+            text-decoration: none;
+            border: none;
+            border-radius: 0.5em;
+            color: #DEDEDE;
+            box-shadow: 0.5em 0.5em 0.5em rgba(0, 0, 0, 0.3);
+            margin-left: 60px;
+            margin-bottom: 20px;
+          }
+          
+          .delete-button::before {
+            position: absolute;
+            content: '';
+            height: 0;
+            width: 0;
+            top: 0;
+            left: 0;
+            background: linear-gradient(135deg, rgba(33,33,33,1) 0%, rgba(33,33,33,1) 50%, rgba(150,4,31,1) 50%, rgba(191,4,38,1) 60%);
+            border-radius: 0 0 0.5em 0;
+            box-shadow: 0.2em 0.2em 0.2em rgba(0, 0, 0, 0.3);
+            transition: 0.3s;
+          }
+          
+          .delete-button:hover::before {
+            width: 1.6em;
+            height: 1.6em;
+          }
+          
+          .delete-button:active {
+            box-shadow: 0.2em 0.2em 0.3em rgba(0, 0, 0, 0.3);
+            transform: translate(0.1em, 0.1em);
+          }
+      
+
+
+
