@@ -1,4 +1,3 @@
-
 import { tasks as initialTasks } from './storage.js';
 
 
@@ -8,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const affichageId = document.getElementById('conteneur_affichageId');
 
 
-// fonction load localStorage
-//
+    // fonction load localStorage
+    //
     const loadAsk = () => {
         const savedTasks = localStorage.getItem('tasks');
         if (savedTasks) {
@@ -19,19 +18,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
 
-// load tâches fonction
-//
+    // load tâches fonction
+    //
     let currentask = loadAsk();
 
 
-// fonction save tâches localStorage
-//
+    // fonction save tâches localStorage
+    //
     const saveAsk = (tasks) => {
         localStorage.setItem('tasks', JSON.stringify(tasks));
     };
 
-// Fonction liste de tâches.
-//
+    // Fonction liste de tâches.
+    //
     const functionRenduAsk = () => {
         affichageId.innerHTML = currentask.map((task, index) => `
             <li class="${task.completed ? 'completed' : ''}">
@@ -41,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
             </li>
         `).join('');
 
-// écouteurs d'événements buttons suppression.
-//
+        // écouteurs d'événements buttons suppression.
+        //
         document.querySelectorAll('.delete-button').forEach(button => {
             button.addEventListener('click', (event) => {
                 const index = event.target.getAttribute('data-index');
@@ -52,26 +51,31 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-// écouteurs d'événements cases à cocher.
-//
+        // écouteurs d'événements cases à cocher.
+        //
         document.querySelectorAll('.task-checkbox').forEach(checkbox => {
             checkbox.addEventListener('change', (event) => {
+                const index = event.target.getAttribute('data-index');
+                currentask[index].completed = event.target.checked; 
+                saveAsk(currentask); 
+        
                 const listItem = event.target.parentElement;
                 listItem.style.textDecorationLine = event.target.checked ? 'line-through' : '';
             });
         });
     };
 
-// fonction ajout nouvelle tâche.
-//
+
+    // fonction ajout nouvelle tâche.
+    //
     const addAsk = (taskText) => {
         currentask.push({ task: taskText, completed: false });
         saveAsk(currentask);
         functionRenduAsk();
     };
 
-// Gestionnaire d'événements formulaire ajout de tâche.
-//
+    // Gestionnaire d'événements formulaire ajout de tâche.
+    //
     askTextForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const taskText = askTextInput.value.trim();
@@ -81,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-// affichage liste des tâches chargement de page.
-//
+    // affichage liste des tâches chargement de page.
+    //
     functionRenduAsk();
 });
