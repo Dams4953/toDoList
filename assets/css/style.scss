@@ -17,10 +17,10 @@ body {
 
 .conteneur {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Changez flex-direction à column */
+    justify-content: flex-start; /* Alignez les éléments au début du conteneur */
     align-items: center;
     width: 100%;
-    height: 500px;
     
 
 
@@ -54,6 +54,17 @@ body {
                 cursor: pointer;
             }
         }
+
+        
+    }
+
+    .conteneur-third {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: auto;
+
 
         #conteneur_affichageId {
             list-style: none;
